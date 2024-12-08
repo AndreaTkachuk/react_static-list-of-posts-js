@@ -11,7 +11,7 @@ function getUserById(userId) {
 }
 
 function getCommentsById(id) {
-  return commentsFromServer.filter(comment => comment.postId === id) || null;
+  return commentsFromServer.filter(comment => comment.postId === id);
 }
 
 export const posts = postsFromServer.map(post => ({
@@ -19,11 +19,6 @@ export const posts = postsFromServer.map(post => ({
   user: getUserById(post.userId),
   comments: getCommentsById(post.id),
 }));
-
-// export const comments = commentsFromServer.map(comment => ({
-//   ...comment,
-//   post: getPostById(comment.postId),
-// }));
 
 export const App = () => (
   <section className="App">
